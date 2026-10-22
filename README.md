@@ -4,3 +4,5 @@
 
 통과 시험: 이 줄만 추가하는 PR.
 
+
+CD_ENABLED=true 시험: 이 PR 이 머지되면 deploy 가 실제로 돌아야 한다.
