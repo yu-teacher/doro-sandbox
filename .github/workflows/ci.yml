@@ -1,0 +1,15 @@
+name: CI
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  check:
+    name: check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: README 에 실패 표시(FAIL_ME)가 없어야 통과한다
+        run: |
+          test -f README.md
+          if grep -q FAIL_ME README.md; then echo "FAIL_ME 발견: 일부러 실패시킨 시험 PR"; exit 1; fi
